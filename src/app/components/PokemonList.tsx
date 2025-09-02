@@ -4,7 +4,11 @@ import React from "react";
 import { useEffect, useState } from "react";
 import PokemonCard from "./PokemonCard";
 
-export default  function PokemonList (){
+type PokemonListProps = {
+  searchTerm: string;
+}
+
+export default  function PokemonList ({searchTerm}:PokemonListProps){
 
   const [pokemonFound, setPokemonFound] = useState <{name: string; url: string} []> ([]);
   const [isLoading, setLoading] = useState(true);
@@ -28,9 +32,13 @@ export default  function PokemonList (){
     return<p>Cargando Pokemon...</p>
   }
 
+  const filteredPokemon = pokemonFound.filter((p) =>
+    p.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="pokemonList flex flex-wrap gap-2 items-center justify-evenly">
-      {pokemonFound.map((p)=>(<PokemonCard key={p.name} name={p.name} url={p.url} />))}
+      {filteredPokemon.map((p)=>(<PokemonCard key={p.name} name={p.name} url={p.url} />))}
     </div>
   )
 }
