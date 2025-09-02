@@ -6,7 +6,6 @@ type PokemonCardProps = {
   url: string;
 }
 
-
 export default function PokemonCard ({name, url}: PokemonCardProps) {
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -19,9 +18,9 @@ export default function PokemonCard ({name, url}: PokemonCardProps) {
   <div className="mainCard flex flex-col justify-around min-w-30 min-h-10 w-fit h-fit rounded-2xl bg-amber-50 text-black text-center hover:bg-amber-200 select-none"
        onClick={handlePokemonCardClick}>
 
-      <a className="capitalize" >{name}</a>
-      {modalOpen? <PokemonModal url={url}/>: null}
       
+      {modalOpen? <PokemonModal url={url}/>: <a className="capitalize" >{name}</a>}
+
   </div>
  );
 }

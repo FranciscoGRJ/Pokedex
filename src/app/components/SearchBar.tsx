@@ -1,6 +1,5 @@
 "use client"
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
-import { useState } from "react";
 
 type SearchBarProps = {
   searchTerm: string;
