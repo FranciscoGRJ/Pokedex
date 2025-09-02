@@ -11,7 +11,6 @@ export default function PokemonCard ({name, url}: PokemonCardProps) {
   const [modalOpen, setModalOpen] = useState(false);
 
   function handlePokemonCardClick(){
-    console.log(name)
     setModalOpen(modalOpen? false:true)
 }
  return(
